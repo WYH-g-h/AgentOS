@@ -1,0 +1,21 @@
+# skills/analyze/skill.yaml
+name: analyze
+description: 分析文件或代码
+version: 1.0.0
+category: analysis
+
+# 依赖的工具
+tools:
+  - read_file
+
+# 执行配置
+model: qwen3.5:9b
+timeout: 60
+retries: 2
+
+# 触发关键词
+triggers:
+  - 分析
+
+# 是否启用
+enabled: true

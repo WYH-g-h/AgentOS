@@ -1,0 +1,76 @@
+# config/models.yaml
+---
+# 模型配置 - 支持多提供商
+
+# 当前使用的提供商 (ollama, openai, deepseek)
+default_provider: ollama
+
+# 当前使用的模型角色
+thinker: deepseek-r1:8b
+doer: qwen3.5:9b
+router: qwen2.5:3b
+embedding: nomic-embed-text:latest
+
+# 模型温度参数
+thinker_temp: 0.2
+doer_temp: 0.1
+router_temp: 0.1
+
+# 模型详细配置
+models:
+  deepseek-r1:8b:
+    capabilities: [reasoning, code]
+    speed_score: 0.3
+    quality_score: 0.9
+    context_window: 8192
+    supports_tools: false  # 不支持工具调用
+
+  qwen3.5:9b:
+    capabilities: [tool_call, chat]
+    speed_score: 0.5
+    quality_score: 0.85
+    context_window: 8192
+    supports_tools: true
+
+  qwen2.5:3b:
+    capabilities: [routing]
+    speed_score: 0.85
+    quality_score: 0.55
+    context_window: 4096
+    supports_tools: false
+
+  nomic-embed-text:latest:
+    capabilities: [embedding]
+    speed_score: 0.8
+    quality_score: 0.7
+
+# 🆕 多提供商配置
+providers:
+  ollama:
+    enabled: true
+    base_url: http://localhost:11434
+    models:
+      thinker: deepseek-r1:8b
+      doer: qwen3.5:9b
+      router: qwen2.5:3b
+      embedding: nomic-embed-text:latest
+
+  openai:
+    enabled: false
+    api_key: ${OPENAI_API_KEY}
+    base_url: https://api.openai.com/v1
+    models:
+      thinker: gpt-4
+      doer: gpt-4-turbo
+      router: gpt-3.5-turbo
+      embedding: text-embedding-3-small
+
+  deepseek:
+    enabled: false
+    api_key: ${DEEPSEEK_API_KEY}
+    base_url: https://api.deepseek.com/v1
+    models:
+      thinker: deepseek-chat
+      doer: deepseek-coder
+      router: deepseek-chat
+      embedding: deepseek-embedding

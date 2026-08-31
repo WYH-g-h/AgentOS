@@ -1,0 +1,68 @@
+.settings-modal {
+  max-width: 440px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.settings-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.settings-label {
+  font-size: 11px;
+  color: #6c757d;
+}
+
+.settings-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-top: 2px;
+}
+
+.settings-value.ok {
+  color: #16a34a;
+}
+.settings-value.error {
+  color: #dc2626;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.settings-action-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.settings-action-btn:hover {
+  background: #1d4ed8;
+}
+
+.settings-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #adb5bd;
+  padding-top: 12px;
+  border-top: 1px solid #e9ecef;
+}

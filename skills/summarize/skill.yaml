@@ -1,0 +1,21 @@
+# skills/summarize/skill.yaml
+name: summarize
+description: 总结文件或文档内容
+version: 1.0.0
+category: analysis
+
+# 依赖的工具
+tools:
+  - read_file
+
+# 执行配置
+model: deepseek-r1:8b
+timeout: 90
+retries: 2
+
+# 触发关键词
+triggers:
+  - 总结
+
+# 是否启用
+enabled: true

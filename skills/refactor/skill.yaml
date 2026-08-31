@@ -1,0 +1,19 @@
+# skills/refactor/skill.yaml
+name: refactor
+description: 重构代码，优化结构和可读性
+version: 1.0.0
+category: development
+
+tools:
+  - read_file
+  - write_file
+  - verify_file
+
+model: deepseek-r1:8b
+timeout: 90
+retries: 2
+
+triggers:
+  - 重构
+
+enabled: true

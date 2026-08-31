@@ -1,0 +1,92 @@
+.input-area {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 2px solid #e9ecef;
+  padding: 6px 6px 6px 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.input-area:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.input-textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  padding: 8px 0;
+  min-height: 36px;
+  max-height: 100px;
+  font-family: inherit;
+  background: transparent;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+
+.input-textarea::placeholder {
+  color: #adb5bd;
+}
+
+.input-textarea:disabled {
+  opacity: 0.6;
+}
+
+.input-btn {
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 38px;
+  padding: 0 16px;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.input-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.vision-btn {
+  background: #f1f3f5;
+  color: #6c757d;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+.vision-btn:hover:not(:disabled) {
+  background: #e9ecef;
+  color: #1a1a2e;
+}
+
+.send-btn {
+  background: #2563eb;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.input-hint {
+  font-size: 10px;
+  color: #adb5bd;
+  text-align: center;
+  padding: 4px 0 2px 0;
+}

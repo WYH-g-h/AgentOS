@@ -1,0 +1,45 @@
+# skills/vision/skill.yaml
+name: vision
+description: 分析图片内容（视觉模型）
+version: 1.0.0
+category: analysis
+
+# 依赖的工具
+tools:
+  - read_file
+  - list_files
+
+# 执行配置
+model: llava:7b
+timeout: 120
+retries: 2
+
+# 触发关键词
+triggers:
+  - 看图
+
+# 是否启用
+enabled: true
+
+# 额外配置
+config:
+  # 默认视觉模型
+  default_model: llava:7b
+  default_prompt: "请用中文详细描述这张图片的内容"
+  # 备用模型
+  fallback_models:
+    - bakllava:7b
+    - llava:13b
+    - cogvlm
+  # 图片搜索路径
+  search_paths:
+    - ./output
+    - .
+  # 支持的图片格式
+  supported_formats:
+    - .png
+    - .jpg
+    - .jpeg
+    - .gif
+    - .webp
+    - .bmp

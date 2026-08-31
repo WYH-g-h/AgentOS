@@ -1,0 +1,22 @@
+# skills/search/skill.yaml
+name: search
+description: 在文件或目录中搜索内容
+version: 1.0.0
+category: file_operation
+
+# 依赖的工具
+tools:
+  - list_files
+  - read_file
+
+# 执行配置
+model: qwen2.5:3b
+timeout: 60
+retries: 2
+
+# 触发关键词
+triggers:
+  - 搜索
+
+# 是否启用
+enabled: true

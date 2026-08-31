@@ -1,0 +1,30 @@
+# workflows/data_analysis/steps.yaml
+
+- name: read_data
+  skill: summarize
+  params:
+    description: "读取并分析数据文件的内容结构"
+  depends_on: []
+  condition: null
+
+- name: clean_data
+  skill: modify
+  params:
+    operation: "清洗数据，处理缺失值和异常值"
+  depends_on: [read_data]
+  condition: null  # 移除条件，直接执行
+
+- name: analyze_data
+  skill: analyze
+  params:
+    analysis_type: "统计分析"
+  depends_on: [clean_data]
+  condition: null
+
+- name: generate_report
+  skill: create
+  params:
+    output: "data_analysis_report.html"
+    template: "data_analysis"
+  depends_on: [analyze_data]
+  condition: null

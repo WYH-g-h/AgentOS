@@ -1,0 +1,13 @@
+# workflows/code_generation/workflow.yaml
+name: code_generation
+description: 完整代码生成工作流：需求分析 → 设计 → 编码 → 审查 → 测试 → 文档
+version: 1.0.0
+
+triggers:
+  - 代码生成
+
+config:
+  stop_on_error: true
+  output_dir: ./output/code
+
+enabled: true

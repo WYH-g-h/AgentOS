@@ -1,0 +1,16 @@
+# workflows/data_analysis/workflow.yaml
+name: data_analysis
+description: 数据分析工作流：读取数据 → 分析 → 生成报告
+version: 1.0.0
+
+# 触发关键词
+triggers:
+  - 数据分析
+
+# 工作流配置
+config:
+  stop_on_error: true
+  output_dir: ./output/data_analysis
+
+# 是否启用
+enabled: true

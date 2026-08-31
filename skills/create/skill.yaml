@@ -1,0 +1,22 @@
+# skills/create/skill.yaml
+name: create
+description: 创建新文件或项目
+version: 1.0.0
+category: file_operation
+
+# 依赖的工具
+tools:
+  - write_file
+  - verify_file
+
+# 执行配置
+model: deepseek-r1:8b
+timeout: 90
+retries: 2
+
+# 触发关键词
+triggers:
+  - 创建
+
+# 是否启用
+enabled: true

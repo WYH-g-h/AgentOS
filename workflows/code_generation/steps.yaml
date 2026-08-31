@@ -1,0 +1,55 @@
+# workflows/code_generation/steps.yaml
+
+- name: analyze_requirement
+  skill: analyze
+  params:
+    description: "分析用户需求"
+  depends_on: []
+  condition: null
+
+- name: design_architecture
+  skill: create
+  params:
+    output: "design.md"          # ← 指定输出文件名
+    template: "architecture"
+  depends_on: [analyze_requirement]
+  condition: null
+
+- name: generate_code
+  skill: create
+  params:
+    output: "main.py"            # ← 指定输出文件名
+    template: "code"
+  depends_on: [design_architecture]
+  condition: null
+
+- name: review_code
+  skill: analyze
+  params:
+    type: "code_review"
+  depends_on: [generate_code]
+  condition: null
+
+- name: generate_test
+  skill: create
+  params:
+    output: "test_main.py"       # ← 指定输出文件名
+    template: "test"
+  depends_on: [generate_code]
+  condition: null
+
+- name: generate_readme
+  skill: create
+  params:
+    output: "README.md"          # ← 指定输出文件名
+    template: "readme"
+  depends_on: [generate_code]
+  condition: null
+
+- name: generate_summary
+  skill: create
+  params:
+    output: "SUMMARY.md"
+    template: "summary"
+  depends_on: [review_code, generate_test, generate_readme]
+  condition: null

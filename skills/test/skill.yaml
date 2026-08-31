@@ -1,0 +1,20 @@
+# skills/test/skill.yaml
+name: test
+description: 为代码生成单元测试
+version: 1.0.0
+category: development
+
+tools:
+  - read_file
+  - write_file
+  - run_command
+  - verify_file
+
+model: deepseek-r1:8b
+timeout: 90
+retries: 2
+
+triggers:
+  - 测试
+
+enabled: true

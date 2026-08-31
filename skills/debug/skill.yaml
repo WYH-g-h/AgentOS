@@ -1,0 +1,20 @@
+# skills/debug/skill.yaml
+name: debug
+description: 调试代码，分析和修复错误
+version: 1.0.0
+category: development
+
+tools:
+  - read_file
+  - write_file
+  - run_command
+  - verify_file
+
+model: qwen3.5:9b
+timeout: 90
+retries: 3
+
+triggers:
+  - 调试
+
+enabled: true

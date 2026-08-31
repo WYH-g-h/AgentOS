@@ -1,0 +1,23 @@
+# skills/modify/skill.yaml
+name: modify
+description: 修改已有文件的内容
+version: 1.0.0
+category: file_operation
+
+# 依赖的工具
+tools:
+  - read_file
+  - write_file
+  - verify_file
+
+# 执行配置
+model: qwen3.5:9b
+timeout: 60
+retries: 2
+
+# 触发关键词
+triggers:
+  - 修改
+
+# 是否启用
+enabled: true

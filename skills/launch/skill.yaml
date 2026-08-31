@@ -1,0 +1,17 @@
+# skills/launch/skill.yaml
+name: launch
+description: 打开电脑上的应用程序（智能匹配）
+version: 1.0.0
+category: system
+
+tools:
+  - run_command
+
+model: qwen2.5:3b
+timeout: 30
+retries: 1
+
+triggers:
+  - 打开
+
+enabled: true

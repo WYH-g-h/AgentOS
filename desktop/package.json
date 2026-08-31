@@ -1,0 +1,66 @@
+{
+  "name": "agentos-desktop",
+  "version": "17.0.0",
+  "description": "AgentOS 桌面应用 - AI 智能助手",
+  "main": "main.js",
+  "scripts": {
+    "dev": "set NODE_ENV=development&& electron .",
+    "start": "electron .",
+    "clean": "node cleanup.js",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win --dir",
+    "build:win:installer": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "package": "npx electron-packager . AgentOS --platform=win32 --arch=x64 --out=dist --overwrite --extra-resource=\"../api\" --extra-resource=\"../core\" --extra-resource=\"../models\" --extra-resource=\"../tools\" --extra-resource=\"../skills\" --extra-resource=\"../workflows\" --extra-resource=\"../config\" --extra-resource=\"../data\" --extra-resource=\"../.venv\" --extra-resource=\"../web/dist\""
+  },
+  "author": "AgentOS",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "axios": "^1.7.7"
+  },
+  "build": {
+    "appId": "com.agentos.desktop",
+    "productName": "AgentOS",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "processManager.js",
+      "assets/**/*",
+      "../api/**/*",
+      "../core/**/*",
+      "../models/**/*",
+      "../tools/**/*",
+      "../skills/**/*",
+      "../workflows/**/*",
+      "../config/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AgentOS"
+    }
+  }
+}

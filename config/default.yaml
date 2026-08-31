@@ -1,0 +1,190 @@
+api:
+  cors_origins:
+  - http://localhost:3000
+  - http://localhost:8000
+  - http://localhost:8501
+  - http://127.0.0.1:3000
+  - http://127.0.0.1:8501
+  debug: true
+  host: 127.0.0.1
+  port: 8000
+default_provider: ollama
+doer: qwen3.5:9b
+doer_temp: 0.1
+embedding: nomic-embed-text:latest
+logging:
+  audit_level: INFO
+  backup_count: 5
+  console_level: INFO
+  file_level: DEBUG
+  max_size: 10
+models:
+  deepseek-r1:8b:
+    capabilities:
+    - reasoning
+    - code
+    context_window: 8192
+    quality_score: 0.9
+    speed_score: 0.3
+    supports_tools: false
+  default_model: llava:7b
+  nomic-embed-text:latest:
+    capabilities:
+    - embedding
+    quality_score: 0.7
+    speed_score: 0.8
+  qwen2.5:3b:
+    capabilities:
+    - routing
+    context_window: 4096
+    quality_score: 0.55
+    speed_score: 0.85
+    supports_tools: false
+  qwen3.5:9b:
+    capabilities:
+    - tool_call
+    - chat
+    context_window: 8192
+    quality_score: 0.85
+    speed_score: 0.5
+    supports_tools: true
+name: AgentOS
+ollama:
+  base_url: http://localhost:11434
+  gpu_overhead: 1.5
+  keep_alive: 5m
+  max_loaded_models: 3
+  num_parallel: 1
+paths:
+  allowed_dirs:
+  - ./data
+  - ./temp
+  - ./downloads
+  - ./uploads
+  - ./output
+  blacklist_extensions:
+  - .key
+  - .pem
+  - .crt
+  - .p12
+  - .pfx
+  - .env
+  - .git/config
+  logs: ./data/logs
+  memory: ./data/chats
+  output: ./output
+  rag: ./data/rag
+  skills: ./skills
+  state: ./data/state
+  workflows: ./workflows
+providers:
+  deepseek:
+    api_key: ${DEEPSEEK_API_KEY}
+    base_url: https://api.deepseek.com/v1
+    enabled: false
+    models:
+      doer: deepseek-coder
+      embedding: deepseek-embedding
+      router: deepseek-chat
+      thinker: deepseek-chat
+  ollama:
+    base_url: http://localhost:11434
+    enabled: true
+    models:
+      doer: qwen3.5:9b
+      embedding: nomic-embed-text:latest
+      router: qwen2.5:3b
+      thinker: deepseek-r1:8b
+  openai:
+    api_key: ${OPENAI_API_KEY}
+    base_url: https://api.openai.com/v1
+    enabled: false
+    models:
+      doer: gpt-4-turbo
+      embedding: text-embedding-3-small
+      router: gpt-3.5-turbo
+      thinker: gpt-4
+router: qwen2.5:3b
+router_temp: 0.1
+runtime:
+  max_history: 100
+  max_retries: 3
+  timeout: 120
+thinker: deepseek-r1:8b
+thinker_temp: 0.2
+tools:
+  delete_file:
+    description: 删除文件
+    enabled: true
+  get_date:
+    description: 获取日期
+    enabled: true
+  get_time:
+    description: 获取时间
+    enabled: true
+  get_timestamp:
+    description: 获取时间戳
+    enabled: true
+  list_files:
+    description: 列出目录文件
+    enabled: true
+  modify_file:
+    description: 健壮修改文件
+    enabled: true
+  mkdir:
+    enabled: true
+    description: 创建目录
+  touch:
+    enabled: true
+    description: 创建空文件
+  rag_add:
+    description: 添加文件到RAG
+    enabled: true
+  rag_ask:
+    description: 基于RAG问答
+    enabled: true
+  rag_list:
+    description: 列出RAG项目
+    enabled: true
+  rag_search:
+    description: 搜索RAG知识库
+    enabled: true
+  rag_stats:
+    description: RAG统计
+    enabled: true
+  read_file:
+    description: 读取文件内容
+    enabled: true
+  recall:
+    description: 回忆信息
+    enabled: true
+  remember:
+    description: 记住信息
+    enabled: true
+  run_command:
+    description: 执行系统命令
+    enabled: true
+  verify_file:
+    description: 验证文件
+    enabled: true
+  write_file:
+    description: 写入文件内容
+    enabled: true
+version: 17.0.0
+vision:
+  default_model: llava:7b
+  fallback_models:
+  - bakllava:7b
+  - llava:13b
+  - cogvlm
+  max_image_size: 10485760
+  search_paths:
+  - ./output
+  - .
+  supported_formats:
+  - .png
+  - .jpg
+  - .jpeg
+  - .gif
+  - .webp
+  - .bmp
